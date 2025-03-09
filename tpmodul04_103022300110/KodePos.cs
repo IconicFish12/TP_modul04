@@ -6,31 +6,27 @@ using System.Threading.Tasks;
 
 namespace tpmodul04_103022300110
 {
-    enum KodePosEnum
-    {
-        Batununggal = 40266,
-        Kujangsari = 40287,
-        Mengger = 40267,
-        Wates = 40256,
-        Cijaura = 40287,
-        Jatisari = 40286,
-        Margasari = 40286,
-        Sekejati = 40286,
-        Kebonwaru = 40272,
-        Maleer = 40274,
-        Samoja = 40273
-    }
-
     class KodePos
     {
-        public int? GetKodePos(string kelurahan)
+        public enum KodePosEnum
         {
-            if (Enum.TryParse(kelurahan, out KodePosEnum result))
-            {
-                return (int)result;
-            }
+            Batununggal,
+            Kujangsari,
+            Mengger,
+            Wates,
+            Cijaura,
+            Jatisari,
+            Margasari,
+            Sekejati,
+            Kebonwaru,
+            Maleer,
+            Samoja
+        }
+        public static int GetKodePos(KodePosEnum kelurahan)
+        {
+            int[] kodePos = { 40266, 40287, 40267, 40256, 40287, 40286, 40286, 40286, 40272, 40274, 40273 };
 
-            return null;
+            return kodePos[(int) kelurahan];
         }
     }
 }
